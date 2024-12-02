@@ -1,5 +1,6 @@
 import * as React from "react";
 import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
 import Layout from "components/style/Layout";
 
 import HeroSlider from "components/home/HeroSlider";
@@ -10,10 +11,10 @@ import WhyUs from "components/home/WhyUs";
 import Media from "components/home/Media";
 import Reviews from "components/home/Reviews";
 import AboutUs from "components/home/AboutUs";
-
 import Process from "components/home/Process";
 import { fetchData } from "services/api";
 import TopServices from "components/home/TopServices";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const getStaticProps = async () => {
   const banners = await fetchData(`banners`);
@@ -25,7 +26,7 @@ export const getStaticProps = async () => {
   let selectedServices = null;
 
   const featuredServices = services.filter(
-    (service) => parseInt(service.featured) == 1
+    (service) => parseInt(service.featured) === 1
   );
 
   if (home_page_category_id) {
@@ -39,11 +40,10 @@ export const getStaticProps = async () => {
     title:
       "Get Certified Local Service Expert at your Doorstep | Keyvendors.com",
     keyword:
-      "Keyvendors,certified local home service, waterproofing, interior designer,",
+      "Keyvendors, certified local home service, waterproofing, interior designer",
     description:
       "Keyvendors is a credible marketplace for certified local home service experts including AC service, waterproofing, interior designer, RO Service in Delhi NCR",
-    setting: {...setting.data,canonicalUrl:`${process.env.HOST}`},
-    
+    setting: { ...setting.data, canonicalUrl: `${process.env.HOST}` },
   };
 
   return {
@@ -72,8 +72,9 @@ export default function IndexPage({
   blocks,
 }) {
   return (
+    <div className="smal-mobile">
     <Layout megaMenuList={services}>
-      <HeroSlider banners={banners} />
+    <HeroSlider banners={banners} />
       <Cta services={featuredServices} />
       <NotificationRibbon />
       {blocks && blocks["data"]["offer"] && (
@@ -86,11 +87,14 @@ export default function IndexPage({
         </Container>
       )}
       <Container sx={{ pb: 5 }} maxWidth="lg">
-        <Services services={services} />
-      </Container>
-      {/* <ServicesStory title="Appliance Repair" services={selectedServices} /> */}
-      <Container sx={{ pb: 5 }} maxWidth="lg">
-        <AboutUs content={about.data.teaser} />
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={6}>
+            <AboutUs content={about.data.teaser} />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Services services={services} />
+          </Grid>
+        </Grid>
       </Container>
       <Container sx={{ pb: 5 }} maxWidth="lg">
         <WhyUs />
@@ -111,6 +115,8 @@ export default function IndexPage({
           />
         </Container>
       )}
+     
     </Layout>
+    </div>
   );
 }
