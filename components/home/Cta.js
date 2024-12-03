@@ -63,7 +63,7 @@ export default function Cta({ services ,city}) {
               </Typography>
             </Grid>
             <Grid item>
-            <Grid justifyContent={{ xs: "flex-start", md: "center" }} 
+            <Grid justifyContent={{ xs: "center", md: "center" }} 
             alignItems="center"
             spacing={1} 
             container>
