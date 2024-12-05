@@ -137,16 +137,16 @@ export default function Header({ megaMenuList }) {
 
   return (
     <>
-      <AppBar sx={{ height: "5rem" }}>
+      <AppBar sx={{ height: "4rem" }}>
         <Toolbar>
           <Grid
-            sx={{ mt: 1 }}
+            sx={{ mt: 2, pb:2 }}
             justifyContent={"end"}
             alignContent={"center"}
             alignItems="center"
             direction={"row"}
             container>
-            <Grid lg={3} xs={8} md={11} item>
+            <Grid lg={3} xs={6} md={11} item>
 
               <Link href="/" underline="none" color="inherit">
                 <Image src={logo} width={100} alt="Key Vendors" />
@@ -182,6 +182,7 @@ export default function Header({ megaMenuList }) {
                  alignItems: "center",
                 alignContent: "center",
                 justifyContent: { md: "left", xs: "end" },
+                mt: 2, 
               }}
               item>
               <Box sx={{
