@@ -181,7 +181,7 @@ export default function Header({ megaMenuList }) {
                  display: "flex",
                  alignItems: "center",
                 alignContent: "center",
-                 justifyContent: "left",
+                justifyContent: { md: "left", xs: "end" },
               }}
               item>
               <Box sx={{
