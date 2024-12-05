@@ -14,7 +14,7 @@ export default function EmptyCart({ handelRefresh }) {
   return (
     <>
       <Badge
-        sx={{ cursor: "pointer" }}
+        sx={{ cursor: "pointer",paddingLeft: {md:"25px", xs:"", sm:""} }}
         onClick={handleOpen}
         className="test"
         color="secondary"

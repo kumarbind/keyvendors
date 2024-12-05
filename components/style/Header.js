@@ -158,7 +158,7 @@ export default function Header({ megaMenuList }) {
                 lg={6}
                 xs={0}
                 md={0}
-                sx={{ display: { xs: "none", md: "none", lg: "flex" } }}
+                sx={{ display: { xs: "none", md: "none", lg: "flex" },justifyContent: "end", }}
                 item>
                 <Box
                   sx={{
@@ -178,14 +178,14 @@ export default function Header({ megaMenuList }) {
               md={1}
               xs={4}
               sx={{
-                display: "flex",
-                alignItems: "center",
+                 display: "flex",
+                 alignItems: "center",
                 alignContent: "center",
-                justifyContent: "end",
+                 justifyContent: "left",
               }}
               item>
               <Box sx={{
-                padding:"20px",
+                padding:"10px",
               }}>
                 {notifications && authInfo?.name && notifications.data.data.length > 0 ? (
                   <Badge
@@ -194,10 +194,10 @@ export default function Header({ megaMenuList }) {
                     badgeContent={notifications.data.total || 0}
                   >
                     <NotificationDialogBox notifications={notifications} />
-                    {/* <NotificationsIcon /> */}
+                    
                   </Badge>
                 ) : (
-                  <Box sx={{ display: "flex", alignItems: "center", padding:"20px"}}>
+                  <Box sx={{ display: "flex", alignItems: "center", padding:"0px"}}>
                     {/* <Typography>No Notifications</Typography> */}
                     <NotificationsIcon />
                     {/* <NotificationDialogBox notifications={notifications} /> */}
